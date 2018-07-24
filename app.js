@@ -15,7 +15,7 @@ require('./configs/passport.config').setup(passport);
 //Routers
 const indexRouter = require('./routes/index.routes');
 const usersRouter = require('./routes/user.routes'); 
-const sessionsRouter = require('./routes/sessions.routes'); 
+const sessionsRouter = require('./routes/session.routes'); 
 //
 // We create our own server named app
 // Express server handling requests and responses
@@ -68,7 +68,8 @@ app.use(function(err, req, res, next) {
 
   //render tue error page
   res.status(err.status || 500 )
-})
+  res.render('error'); 
+}); 
 
 
 app.listen(3000);
