@@ -16,6 +16,7 @@
     "mongoose": "^5.2.4",
     "n": "^2.1.12",
     "nodemon": "^1.18.3",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
