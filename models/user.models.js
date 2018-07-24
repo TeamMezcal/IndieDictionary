@@ -1,6 +1,7 @@
+
+const constants = require('../constants');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const SALT_WORK_FACTOR = 10;
 const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL;
 
@@ -19,10 +20,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: 'Password is required',
   },
-//   social: {
-//     googleId: String,
-//     facebookId: String
-//   },
+  social: {
+    googleId: String,
+    facebookId: String
+  },
   role: {
     type: String,
     enum: [constants.ROLE_ADMIN, constants.ROLE_GUEST],
