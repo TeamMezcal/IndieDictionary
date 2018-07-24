@@ -25,9 +25,11 @@ module.exports.doCreate = (req, res, next) => {
           errors: { email: 'Email already registered' }
         });
       } else {
-        user = new User (req.body);
-        return user.save()
-          .then(user => {
+        user = new User(req.body);
+        console.log(req.body)
+        
+        user.save()
+          .then((user) => {
             res.redirect('/sessions/create');
           });
       }

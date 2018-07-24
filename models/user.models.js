@@ -6,10 +6,6 @@ const SALT_WORK_FACTOR = 10;
 const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL;
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: 'Name is fucking required'
-  },
   email: {
     type: String,
     required: 'Email is fucking required',
