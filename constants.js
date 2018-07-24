@@ -2,3 +2,12 @@ module.exports = {
     ROLE_ADMIN: 'ADMIN',
     ROLE_GUEST: 'GUEST'
   }
+
+  module.exports = {
+    TYPE_VERB: 'VERBO',
+    TYPE_ADVERB: 'ADVERBIO',
+    TYPE_ADJECTIVE: 'ADJETIVO',
+    TYPE_OBJECT: 'SUSTANTIVO',
+    TYPE_IDIOM: 'EXPRESIÓN, PERÍFRASIS',
+    TYPE_INTERJECTION: 'INTERJECCIONES',
+  }

@@ -8,12 +8,12 @@ const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL;
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: 'Name is required'
+    required: 'Name is fucking required'
   },
   email: {
     type: String,
-    required: 'Email is required',
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
+    required: 'Email is fucking required',
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a fucking valid email address'],
     unique: true
   },
   password: {
