@@ -28,11 +28,11 @@ module.exports.setup = (passport) => {
             if (match) {
               next(null, user); 
             } else {
-              next(null, null, { password: 'Fucking invalid email or password'})
+              next(null, null, { password: 'Fucking invalid password'})
             }
           }); 
         } else {
-          next (null, null, { password: 'Fucking invalid email or password'})
+          next (null, null, { password: 'User is fucking unknown'})
         }
       })
       .catch(error => next(error)); 
