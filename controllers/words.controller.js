@@ -35,18 +35,3 @@ module.exports.doCreate = (req, res, next) => {
       }
     });
 };
-
-//TODO: Do users need to be able to delete words?
-
-
-// module.exports.doDelete = (req, res, next) => {
-//   Word.findByIdAndRemove(req.params.id)
-//     .then(word => {
-//       if (!word) {
-//         next(createError(404, 'Word not found'));
-//       } else {
-//         res.redirect('/words');
-//       }
-//     })
-//     .catch(error => next(error));
-// }
