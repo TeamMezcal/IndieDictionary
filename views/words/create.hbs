@@ -1,0 +1,36 @@
+<form>
+      <div class="form-group">
+    <label for="semanticDefinition">Define the concept</label>
+    <textarea class="form-control" id="semanticDefinition" rows="3" placeholder="Scriptctus: brain stroke caused by unhandled errors"></textarea>
+  </div>
+    <div class="form-group">
+    <label for="scopeOfUse">Scope of use</label>
+    <select class="form-control" id="scopeOfUse">
+      <option>Local (take my current location)</option>
+      <option>Regional (take my current location)</option>
+      <option>National (take my current location)</option>
+      <option>Worldwide</option>
+      <option>Other (please specify)</option>
+    </select>
+      <div class="form-group">
+    <label for="otherScope">Scope of Use: Other (please specify)</label>
+{{!-- TODO: should only be displayed if "Other" is selected on dropdown --}}
+{{!--  --}}
+    <textarea class="onlyIfOther" placeholder="IronHack" rows="1"></textarea>
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="style">Style</label>
+    <select multiple class="form-control" id="registry" aria-placeholder="When can we use it?">
+      <option>General</option>
+      <option>Formal</option>
+      <option>Colloquial</option>
+      <option>Vulgar</option>
+      <option>Insult</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
