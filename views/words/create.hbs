@@ -3,6 +3,10 @@
     <label for="semanticDefinition">Define the concept</label>
     <textarea class="form-control" id="semanticDefinition" rows="3" placeholder="Scriptctus: brain stroke caused by unhandled errors"></textarea>
   </div>
+  <div class="form-group">
+    <label for="empathicEtymology">Empathic Definition</label>
+    <textarea class="form-control" id="empathicEtymology" rows="3"placeholder="Explain your fucking emotions or the experience that led you to believe that this word is needed"></textarea>
+  </div>
     <div class="form-group">
     <label for="scopeOfUse">Scope of use</label>
     <select class="form-control" id="scopeOfUse">
@@ -19,6 +23,18 @@
     <textarea class="onlyIfOther" placeholder="IronHack" rows="1"></textarea>
   </div>
   </div>
+    <div class="form-group">
+    <label for="typeOfWord">Type of word</label>
+    <select class="form-control" id="scopeOfUse">
+      <option>Verb</option>
+      <option>Adverb</option>
+      <option>Adjective</option>
+      <option>Noun</option>
+      <option>Idiom</option>
+      <option>Interjection</option>
+    </select>
+     
+  </div>
   <div class="form-group">
     <label for="style">Style</label>
     <select multiple class="form-control" id="registry" aria-placeholder="When can we use it?">
@@ -29,8 +45,13 @@
       <option>Insult</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
+<section>
+  <h2>Upload your photo</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="text" name="name">
+    <input type="file" name="photo">
+    <input type="submit" value="Save">
+  </form>
+</section>
+
 </form>

@@ -15,7 +15,9 @@ require('./configs/passport.config').setup(passport);
 //Routers
 const indexRouter = require('./routes/index.routes');
 const usersRouter = require('./routes/user.routes'); 
-const sessionsRouter = require('./routes/session.routes'); 
+const sessionsRouter = require('./routes/session.routes');
+const Picture = require("./models/picture.models")
+const multer = require('multer');
 //
 // We create our own server named app
 // Express server handling requests and responses
