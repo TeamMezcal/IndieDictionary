@@ -26,6 +26,10 @@ const wordSchema = new mongoose.Schema ({
         enum: [constants.SCOPE_LOCAL, constants.SCOPE_REGIONAL, constants.SCOPE_NATIONAL, constants.SCOPE_WORLDWIDE, constants.SCOPE_OTHER]
     },
 
+    scopeOther : {
+        type : String,
+    }, 
+
     style: {
         type: String, 
         required: "Be a little fucking specific, please.",

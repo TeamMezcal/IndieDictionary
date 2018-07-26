@@ -22,6 +22,7 @@ module.exports.doCreate = (req, res, next) => {
           definition: req.body.definition,
           empathicEtymology: req.body.empathic,
           scopeOfUse: req.body.scope,
+          scopeOther: req.body.scopeOther, 
           style: req.body.style
         });
         //console.log(req.body.style, req.body.definition, req.body.empathic, req.body.scope)
@@ -31,9 +32,10 @@ module.exports.doCreate = (req, res, next) => {
             res.redirect('/sessions/create');
           })      
           
-          //console.log(word)
+          console.log(word)
 
     .catch(error => {
+      console.log('Error: ', error)
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('words/create', {
           word: req.body,

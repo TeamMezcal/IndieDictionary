@@ -21,11 +21,11 @@ module.exports = {
   }
 
   module.exports = {
-    SCOPE_LOCAL: 'LOCAL',
-    SCOPE_REGIONAL: 'REGIONAL',
-    SCOPE_NATIONAL: 'NATIONAL',
+    SCOPE_LOCAL: 'Local',
+    SCOPE_REGIONAL: 'Regional',
+    SCOPE_NATIONAL: 'National',
     SCOPE_WORLDWIDE: 'Worldwide',
-    SCOPE_OTHER: 'OTHER',
+    SCOPE_OTHER: 'Other',
     
   }
 
