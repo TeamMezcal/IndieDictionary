@@ -33,9 +33,8 @@ module.exports.doCreate = (req, res, next) => {
       } else {
         next(error);
       }
-    })
-}
-
+    });
+};
 
 //TODO: Do users need to be able to delete words?
 
