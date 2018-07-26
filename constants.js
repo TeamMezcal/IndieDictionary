@@ -24,7 +24,7 @@ module.exports = {
     SCOPE_LOCAL: 'LOCAL',
     SCOPE_REGIONAL: 'REGIONAL',
     SCOPE_NATIONAL: 'NATIONAL',
-    SCOPE_WORLDWIDE: 'WORLDWIDE',
+    SCOPE_WORLDWIDE: 'Worldwide',
     SCOPE_OTHER: 'OTHER',
     
   }

@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const User = require('../models/word.models');
+const Word = require('../models/word.models');
 
 module.exports.list = (req, res, next) => {
   Word.find()
@@ -17,13 +17,22 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-        word = new Word(req.body);
-        console.log(req.body)
+        word = new Word({
+          typeOfWord: req.body.type,
+          definition: req.body.definition,
+          empathicEtymology: req.body.empathic,
+          scopeOfUse: req.body.scope,
+          style: req.body.style
+        });
+        //console.log(req.body.style, req.body.definition, req.body.empathic, req.body.scope)
         
         word.save()
           .then((word) => {
             res.redirect('/sessions/create');
           })      
+          
+          //console.log(word)
+
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('words/create', {
