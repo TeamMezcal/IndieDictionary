@@ -4,7 +4,8 @@ const router = express.Router();
 //Get dictionary page:
 
 router.get('/dictionary', (req, res, next) => {
-  res.render ('dictionary');
+  console.log('im here')
+  res.render ('dictionary/dictionary');
 }); 
 
 module.exports = router;
