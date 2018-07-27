@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-//Get home page:
+//Get dictionary page:
 
-router.get('/', (req, res, next) => {
-  res.render ('index');
+router.get('/dictionary', (req, res, next) => {
+  res.render ('dictionary');
 }); 
 
 module.exports = router;
