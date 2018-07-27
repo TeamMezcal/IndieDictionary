@@ -36,6 +36,10 @@ const wordSchema = new mongoose.Schema ({
         emum: [constants.STYLE_GENERAL, constants.STYLE_FORMAL, constants.STYLE_COLLOQUIAL, constants.STYLE_VULGAR, constants.STYLE_INSULT]
     },
 
+    word: {
+        type: String, 
+    }
+
 })
 
 const Word = mongoose.model('Word', wordSchema);

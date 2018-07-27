@@ -16,7 +16,7 @@ module.exports = {
     STYLE_GENERAL: 'GENERAL',
     STYLE_FORMAL: 'FORMAL',
     STYLE_COLLOQUIAL: 'COLLOQUIAL',
-    STYLE_VULGAR: 'VULGAR',
+    STYLE_VULGAR: 'Vulgar',
     STYLE_INSULT: 'INSULT',
   }
 

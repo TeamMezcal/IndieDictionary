@@ -23,7 +23,8 @@ module.exports.doCreate = (req, res, next) => {
           empathicEtymology: req.body.empathic,
           scopeOfUse: req.body.scope,
           scopeOther: req.body.scopeOther, 
-          style: req.body.style
+          style: req.body.style,
+          word: req.body.word
         });
         //console.log(req.body.style, req.body.definition, req.body.empathic, req.body.scope)
         
@@ -32,7 +33,7 @@ module.exports.doCreate = (req, res, next) => {
             res.redirect('/sessions/create');
           })      
           
-          console.log(word)
+          //console.log(word)
 
     .catch(error => {
       console.log('Error: ', error)
