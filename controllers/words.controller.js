@@ -17,33 +17,31 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-        word = new Word({
-          typeOfWord: req.body.type,
-          definition: req.body.definition,
-          empathicEtymology: req.body.empathic,
-          scopeOfUse: req.body.scope,
-          scopeOther: req.body.scopeOther, 
-          style: req.body.style,
-          word: req.body.word
-        });
-        //console.log(req.body.style, req.body.definition, req.body.empathic, req.body.scope)
-        
-        word.save()
-          .then((word) => {
-            res.redirect('/sessions/create');
-          })      
-          
-          //console.log(word)
+  word = new Word({
+    typeOfWord: req.body.type,
+    definition: req.body.definition,
+    etymology: req.body.empathic,
+    scope: req.body.scope,
+    scopeOther: req.body.scopeOther, 
+    style: req.body.style,
+    value : req.body.value,
+    example: req.body.example
+  });
+  
+  word.save()
+    .then((word) => {
+      res.redirect('/saved');
+    })      
 
-    .catch(error => {
-      console.log('Error: ', error)
-      if (error instanceof mongoose.Error.ValidationError) {
-        res.render('words/create', {
-          word: req.body,
-          errors: error.errors
-        });
-      } else {
-        next(error);
-      }
-    });
+  .catch(error => {
+    console.log('Error: ', error)
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.render('words/create', {
+        word: req.body,
+        errors: error.errors
+      });
+    } else {
+      next(error);
+    }
+  });
 };

@@ -16,7 +16,8 @@ require('./configs/passport.config').setup(passport);
 const indexRouter = require('./routes/index.routes');
 const usersRouter = require('./routes/user.routes'); 
 const sessionsRouter = require('./routes/session.routes');
-const wordsRouter = require('./routes/word.routes')
+const wordsRouter = require('./routes/word.routes');
+const savedRouter = require('./routes/saved.routes');
 const dictionaryRouter = require('./routes/dictionary.routes'); 
 const Picture = require("./models/picture.models"); 
 const multer = require('multer');
@@ -59,6 +60,7 @@ app.use('/users', usersRouter);
 app.use('/sessions', sessionsRouter);
 app.use('/words', wordsRouter);
 app.use('/', indexRouter);
+app.use('/saved', savedRouter);
 app.use('/dictionary', dictionaryRouter); 
 
 //catch 404 and forward to error handler
