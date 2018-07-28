@@ -17,7 +17,8 @@ const indexRouter = require('./routes/index.routes');
 const usersRouter = require('./routes/user.routes'); 
 const sessionsRouter = require('./routes/session.routes');
 const wordsRouter = require('./routes/word.routes')
-const Picture = require("./models/picture.models")
+const dictionaryRouter = require('./routes/dictionary.routes'); 
+const Picture = require("./models/picture.models"); 
 const multer = require('multer');
 //
 // We create our own server named app
@@ -58,6 +59,7 @@ app.use('/users', usersRouter);
 app.use('/sessions', sessionsRouter);
 app.use('/words', wordsRouter);
 app.use('/', indexRouter);
+app.use('/dictionary', dictionaryRouter); 
 
 //catch 404 and forward to error handler
 app.use(function(req, res, next) {
