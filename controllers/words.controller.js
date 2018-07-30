@@ -6,7 +6,7 @@ module.exports.list = (req, res, next) => {
   Word.find()
     .then(words => {
       res.render('words/list', {
-        word: words
+        word
       });
     })
     .catch(error => next(error));
@@ -18,7 +18,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
   word = new Word({
-    typeOfWord: req.body.type,
+    type: req.body.type,
     definition: req.body.definition,
     etymology: req.body.empathic,
     scope: req.body.scope,

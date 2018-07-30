@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const wordSchema = new mongoose.Schema ({
 
-    typeOfWord: {
+    type: {
         type: String,
         required : "This is a fucking dictionary, of couse it's fucking required, idiot.", 
         enum: [constants.TYPE_VERB, constants.TYPE_ADVERB, constants.TYPE_ADJECTIVE, constants.TYPE_OBJECT, constants.TYPE_IDIOM, constants.TYPE_INTERJECTION, ],
@@ -37,7 +37,7 @@ const wordSchema = new mongoose.Schema ({
     },
 
     value: {
-        type: Array
+        type: String
     },
 
     example: {
