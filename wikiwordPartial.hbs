@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<div class="col-md-10">
+{{!-- <div class="col-md-10">
     <form action="/dictionary/dictionary" method="GET">
         <div class="input-group mb-8">
         <input type="text" class="form-control" placeholder="Type a word" aria-label="Word's value" aria-describedby="basic-addon2">
@@ -18,6 +18,42 @@
     <h3>Empathic Etymology</h3>
     <p>Lorem ipsum dolor amet chicharrones put a bird on it butcher whatever la croix yuccie enamel pin plaid photo booth. Narwhal subway tile marfa irony, crucifix messenger bag snackwave.</p>
 
+</div> --}}
+
+aqui estoy
+
+
+    <br>
+
+    <div class="col-md-10">
+    <form action="/dictionary/dictionary" method="GET">
+        <div class="input-group mb-8">
+        <input type="text" class="form-control" placeholder="Type a word" aria-label="Word's value" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+        </div>
+    </form>
+    <br>
+    <h1>{{word.value}}</h1>
+    <h5> <i>{{word.type}}</i></h5>
+    <br>
+    <h3>Definition</h3>
+    <p class= "col-xs-12">{{word.definition}}</p>
+    <br>
+    <h3>Empathic Etymology</h3>
+    <p>{{word.etymology}}</p>
+    <br>
+    <h3>Scope of Use</h3>
+    <p>{{word.scope}}</p>
+    <br>
+    <h3>Style</h3>
+    <p>{{word.style}}</p>
+    <br>
+    <h3>Examples</h3>
+    <ol>
+         <li>{{word.example}}</li>
+    </ol>
 </div>
 
 

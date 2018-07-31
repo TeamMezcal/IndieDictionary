@@ -41,7 +41,7 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.list = (req, res, next) => {
   Word.find()
     .then(words => {
-      res.render('words/list', {
+      res.render('words/detail', {
         words
       });
     })
