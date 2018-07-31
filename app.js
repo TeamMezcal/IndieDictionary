@@ -20,6 +20,7 @@ const wordsRouter = require('./routes/word.routes');
 const savedRouter = require('./routes/saved.routes');
 const dictionaryRouter = require('./routes/dictionary.routes'); 
 const listRouter = require('./routes/list.routes')
+
 const Picture = require("./models/picture.models"); 
 const multer = require('multer');
 //
@@ -64,6 +65,7 @@ app.use('/', indexRouter);
 app.use('/saved', savedRouter);
 app.use('/dictionary', dictionaryRouter); 
 app.use('/list', listRouter); 
+
 
 //catch 404 and forward to error handler
 app.use(function(req, res, next) {

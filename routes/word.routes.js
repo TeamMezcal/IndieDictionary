@@ -9,5 +9,10 @@ const mongoose = require('mongoose');
 router.get("/create", authMiddleware.isAuthenticated, wordsController.create); 
 router.post("/create", wordsController.doCreate); 
 
+router.get('/:id', 
+wordsController.get); 
+
+
+
 
 module.exports = router; 

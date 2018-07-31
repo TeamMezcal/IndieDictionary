@@ -47,3 +47,28 @@ module.exports.list = (req, res, next) => {
     })
     .catch(error => next(error));
 }
+
+
+module.exports.get = (req, res, next) => {
+
+  const id = req.params.id; 
+
+  Word.findById(id)
+    .populate('word')
+    .then(word => {
+      if(word) {
+        res.render('words/detail', {
+          word, 
+        }); 
+      } else {
+        next(createError(404, 'Word with id ${id} not foocking found'))
+      }
+    })
+    .catch(error => {
+      if (error instanceof mongoose.Error.CastError) {
+        next(createError(404, 'Word with id ${id} not foocking found')); 
+      } else {
+        next(error); 
+      }
+    }); 
+}

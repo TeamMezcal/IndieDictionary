@@ -1,7 +1,7 @@
 <form action="/words/create" method="post" class="col-4 mx-auto">
   <div class="form-group">
     <label  for="typeOfWord">Type of word</label>
-    <select name="type" class="form-control" id="typeOfWord">
+    <select name="type" value='{{word.type}}'class="form-control" id="typeOfWord">
       <option>Verb</option>
       <option>Adverb</option>
       <option>Adjective</option>
