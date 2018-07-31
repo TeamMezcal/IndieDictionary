@@ -1,7 +1,7 @@
 <form action="/words/create" method="post" class="col-4 mx-auto">
   <div class="form-group">
     <label  for="typeOfWord">Type of word</label>
-    <select name="type" value='{{word.type}}'class="form-control" id="typeOfWord">
+    <select name="type" value='{{this.type}}'class="form-control" id="typeOfWord">
       <option>Verb</option>
       <option>Adverb</option>
       <option>Adjective</option>
@@ -13,17 +13,17 @@
 
   <div class="form-group">
     <label for="semanticDefinition">Define the word</label>
-    <textarea name="definition" class="form-control" id="definition" rows="3" placeholder="Scriptctus: brain stroke caused by unhandled errors"></textarea>
+    <textarea name="definition" value='{{this.definition}}' class="form-control" id="definition" rows="3" placeholder="Scriptctus: brain stroke caused by unhandled errors"></textarea>
   </div>
 
   <div class="form-group">
     <label for="empathicEtymology">Empathic Definition</label>
-    <textarea name="empathic" class="form-control" id="empathicEtymology" rows="3"placeholder="Explain your fucking emotions or the experience that led you to believe that this word is needed"></textarea>
+    <textarea name="empathic" value='{{this.empathic}}'class="form-control" id="empathicEtymology" rows="3"placeholder="Explain your fucking emotions or the experience that led you to believe that this word is needed"></textarea>
   </div>
 
 <div class="form-group">
     <label for="scopeOfUse">Scope of use</label>
-    <select name="scope" class="form-control" id="scopeOfUse">
+    <select name="scope" value='{{this.scope}}' class="form-control" id="scopeOfUse">
       <option>Local</option>
       <option>Regional</option>
       <option>National </option>
@@ -40,7 +40,7 @@
 
   <div class="form-group">
     <label for="style">Style</label>
-    <select name="style" multiple class="form-control" id="style" aria-placeholder="When can we use it?">
+    <select name="style" multiple class="form-control" id="style" value='{{this.style}}' aria-placeholder="When can we use it?">
       <option>General</option>
       <option>Formal</option>
       <option>Colloquial</option>
@@ -51,11 +51,11 @@
 
   <div class="form-group">
     <label for="word">Word</label>
-    <input name="value" class="form-control" id="value" rows="1"placeholder="What word do you fucking propose?" value="{{ this.value}}"></input>
+    <input name="value" value="{{this.value}}"class="form-control" id="value" rows="1"placeholder="What word do you fucking propose?" ></input>
   </div>
    <div class="form-group">
     <label for="example">Example</label>
-    <textarea name="example" class="form-control" id="example" rows="3" placeholder="Please fucking exemplify"></textarea>
+    <textarea name="example" class="form-control" id="example" rows="3" placeholder="Please fucking exemplify" value='{{this.example}}'></textarea>
   </div>
 {{!-- <section>
   <h2>Upload your photo</h2>
