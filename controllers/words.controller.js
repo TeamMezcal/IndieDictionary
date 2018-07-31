@@ -2,15 +2,6 @@ const createError = require('http-errors');
 const mongoose = require('mongoose');
 const Word = require('../models/word.models');
 
-module.exports.list = (req, res, next) => {
-  Word.find()
-    .then(words => {
-      res.render('words/list', {
-        word
-      });
-    })
-    .catch(error => next(error));
-}
 
 module.exports.create = (req, res, next) => {
   res.render('words/create');
@@ -45,3 +36,14 @@ module.exports.doCreate = (req, res, next) => {
     }
   });
 };
+
+
+module.exports.list = (req, res, next) => {
+  Word.find()
+    .then(words => {
+      res.render('words/list', {
+        words
+      });
+    })
+    .catch(error => next(error));
+}
