@@ -52,13 +52,14 @@ module.exports.list = (req, res, next) => {
 module.exports.get = (req, res, next) => {
 
   const id = req.params.id; 
-
+  // TODO : foooking promise all 
   Word.findById(id)
     .populate('word')
+    
     .then(word => {
       if(word) {
         res.render('words/detail', {
-          word, 
+          word 
         }); 
       } else {
         next(createError(404, 'Word with id ${id} not foocking found'))
