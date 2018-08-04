@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
+require('dotenv');
 
-const DB_NAME = 'diseDB'
 //const MONGODB_URI = `mongodb://localhost:27017/${DB_NAME}`;
 const MONGODB_URI = process.env.MONGO_URI;
 
