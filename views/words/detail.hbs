@@ -1,17 +1,20 @@
-aqui estoy
-
-
     <br>
     <div class="row">
         <div class="col-md-8">
-            <form action="/dictionary/dictionary" method="GET">
-                <div class="input-group mb-8">
-                    <input type="text" class="form-control" placeholder="Type a word" aria-label="Word's value" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Search</button>
-                    </div>
+             <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Index
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">A</a>
+                    <a class="dropdown-item" href="#">B</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
                 </div>
-            </form>
+                </div>          
+             <a class="btn btn-success" href="/list">Randomize</a>
+
             <br>
             <h1>{{word.value}}</h1>
             <h5> <i>{{word.type}}</i></h5>
