@@ -5,18 +5,9 @@ const wordsController = require("../controllers/words.controller");
 const authMiddleware = require('../middlewares/auth.middleware');
 const mongoose = require('mongoose');
 
-router.post("/", wordsController.listByQuery);
+//Get home page:
 
-router.get("/create", authMiddleware.isAuthenticated, wordsController.create); 
-router.post("/create", wordsController.doCreate); 
-
-router.get('/:id', 
-wordsController.get); 
+router.get('/', wordsController.list); 
 
 
-
-
-
-
-
-module.exports = router; 
+module.exports = router;

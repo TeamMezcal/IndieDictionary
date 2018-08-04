@@ -8,9 +8,18 @@
 	<div class="collapse navbar-collapse" id="main-nav-content">
 		<ul class="navbar-nav mr-auto">
 			{{#if session}}
+			
 				<li class="nav-item active">
-					<a class="nav-link" href="/users">Users</a>
+					<a class="nav-link" href="/mywords">My Words</a>
 				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/words/create">Create</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/#">Audit</a>
+				</li>
+			
+				
 			{{else}}
 				<li class="nav-item active">
 					<a class="nav-link" href="/sessions/create">Login</a>
@@ -21,6 +30,10 @@
 			{{/if}}
 		</ul>
 	</div>
+	 <form class="form-inline my-2 my-lg-0" method= "POST" action="/words/{{  }}">
+      <input class="form-control mr-sm-2" name = "query" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
 	<ul class="navbar-nav mr-auto">
 		{{#if session}}
 			<li class="nav-item">
@@ -31,4 +44,5 @@
 			</li>
 		{{/if}}
 	</ul>
+
 </nav>

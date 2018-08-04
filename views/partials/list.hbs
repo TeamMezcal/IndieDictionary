@@ -1,0 +1,14 @@
+
+    <h2 class="mb-4">Index</h2>
+    <ul class="list-group mt-2">
+      {{#each words as |word| }}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <a href="/words/{{word._id}}">
+            <i>{{ this.type}}</i>
+            <b style="text-align: right">{{ this.value }}</b>
+            <i style="text-align: right" class='fas fa-plus'></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>        

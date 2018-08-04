@@ -2,15 +2,6 @@ const createError = require('http-errors');
 const mongoose = require('mongoose');
 const Word = require('../models/word.models');
 
-module.exports.list = (req, res, next) => {
-  Word.find()
-    .then(words => {
-      res.render('words/list', {
-        word: words
-      });
-    })
-    .catch(error => next(error));
-}
 
 module.exports.create = (req, res, next) => {
   res.render('words/create');
@@ -18,14 +9,15 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
   word = new Word({
-    typeOfWord: req.body.type,
+    type: req.body.type,
     definition: req.body.definition,
     etymology: req.body.empathic,
     scope: req.body.scope,
     scopeOther: req.body.scopeOther, 
     style: req.body.style,
     value : req.body.value,
-    example: req.body.example
+    example: req.body.example,
+    creator: req.user._id
   });
   
   word.save()
@@ -45,3 +37,67 @@ module.exports.doCreate = (req, res, next) => {
     }
   });
 };
+
+
+module.exports.list = (req, res, next) => {
+  Word.find()
+    .then(words => {
+      res.render('words/detail', {
+        words
+      });
+    })
+    .catch(error => next(error));
+};
+
+module.exports.listByUser = (req, res, next) => {
+  const userId = req.user._id;
+  console.info(userId)
+
+  Word.find({"creator": userId  })
+  .then(words => {
+    res.render('words/userWords', {
+      words
+    });
+  })
+  .catch(error => next(error));
+};
+
+module.exports.listByQuery = (req, res, next) => {
+  const wordId = req.params.id;
+  const query = req.body.query;
+  console.info("--------> ", req.params)
+  Word.find({"value": query})
+  .then(words => {
+    res.render("words/detail", {
+      words
+    });
+  })
+  .catch(error => next(error));
+
+}
+
+
+module.exports.get = (req, res, next) => {
+
+  const id = req.params.id; 
+  // TODO : foooking promise all 
+  Word.findById(id)
+    .populate('word')
+    
+    .then(word => {
+      if(word) {
+        res.render('words/detail', {
+          word 
+        }); 
+      } else {
+        next(createError(404, 'Word with id ${id} not foocking found'))
+      }
+    })
+    .catch(error => {
+      if (error instanceof mongoose.Error.CastError) {
+        next(createError(404, 'Word with id ${id} not foocking found')); 
+      } else {
+        next(error); 
+      }
+    }); 
+}
