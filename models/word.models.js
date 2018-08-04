@@ -40,6 +40,11 @@ const wordSchema = new mongoose.Schema ({
         type: String
     },
 
+    creator: {
+        type: String
+        
+    },
+
     example: {
         type: Array
     }

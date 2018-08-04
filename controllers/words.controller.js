@@ -16,7 +16,8 @@ module.exports.doCreate = (req, res, next) => {
     scopeOther: req.body.scopeOther, 
     style: req.body.style,
     value : req.body.value,
-    example: req.body.example
+    example: req.body.example,
+    creator: req.user._id
   });
   
   word.save()
@@ -46,6 +47,19 @@ module.exports.list = (req, res, next) => {
       });
     })
     .catch(error => next(error));
+};
+
+module.exports.listByUser = (req, res, next) => {
+  const userId = req.user._id;
+  console.info(userId)
+
+  Word.find({"creator": userId  })
+  .then(words => {
+    res.render('words/userWords', {
+      words
+    });
+  })
+  .catch(error => next(error));
 }
 
 
