@@ -60,6 +60,20 @@ module.exports.listByUser = (req, res, next) => {
     });
   })
   .catch(error => next(error));
+};
+
+module.exports.listByQuery = (req, res, next) => {
+  const wordId = req.params.id;
+  const query = req.body.query;
+  console.info("--------> ", req.params)
+  Word.find({"value": query})
+  .then(words => {
+    res.render("words/detail", {
+      words
+    });
+  })
+  .catch(error => next(error));
+
 }
 
 
