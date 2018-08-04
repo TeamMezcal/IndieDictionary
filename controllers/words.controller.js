@@ -63,16 +63,15 @@ module.exports.listByUser = (req, res, next) => {
 };
 
 module.exports.listByQuery = (req, res, next) => {
-  const wordId = req.params.id;
-  const query = req.body.query;
-  console.info("--------> ", req.params)
-  Word.find({"value": query})
-  .then(words => {
-    res.render("words/detail", {
-      words
-    });
-  })
-  .catch(error => next(error));
+  const { word } = req.body;
+  Word.findOne({"value": word})
+    .then(word => {
+      console.log('Word --> ', word)
+      res.render("words/detail", {
+        word
+      });
+    })
+    .catch(error => next(error));
 
 }
 
