@@ -101,18 +101,13 @@ module.exports.get = (req, res, next) => {
     }); 
 }; 
 
-module.exports.random = (req, res, next) => {
-  console.log("ENTRO AQUI")
-  
-let random = Word.aggregate([{ $sample: { size: 1 } }])  
-console.log(random)
-  //.populate('word')
-random
+module.exports.random = (req, res, next) => {  
+
+Word.aggregate([{ $sample: { size: 1 } }])  
 
   .then(words => {
 
     if(words) {
-      
       res.render('words/detail', {
         words
       });

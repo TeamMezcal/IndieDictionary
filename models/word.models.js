@@ -47,7 +47,9 @@ const wordSchema = new mongoose.Schema ({
 
     example: {
         type: Array
-    }
+    },
+
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 
 }, {timestamps: true})
 
