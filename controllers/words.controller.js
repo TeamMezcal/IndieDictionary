@@ -99,4 +99,33 @@ module.exports.get = (req, res, next) => {
         next(error); 
       }
     }); 
+}; 
+
+module.exports.random = (req, res, next) => {
+  console.log("ENTRO AQUI")
+  
+let random = Word.aggregate([{ $sample: { size: 1 } }])  
+console.log(random)
+  //.populate('word')
+random
+
+  .then(words => {
+
+    if(words) {
+      
+      res.render('words/detail', {
+        words
+      });
+    } else {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    }
+  })
+  .catch(error => {
+    if(error instanceof mongoose.Error.CastError) {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    } else {
+      next(error);
+    }
+  }); 
 }
+

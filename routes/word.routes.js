@@ -6,10 +6,13 @@ const authMiddleware = require('../middlewares/auth.middleware');
 const mongoose = require('mongoose');
 
 router.post("/", wordsController.listByQuery);
+router.get("/", wordsController.random);
+
 
 router.get("/create", authMiddleware.isAuthenticated, wordsController.create); 
 router.post("/create", wordsController.doCreate); 
 
 router.get('/:id', wordsController.get); 
+//router.get('/5b65b7295d541324bd6b36d9', wordsController.random); 
 
 module.exports = router; 
