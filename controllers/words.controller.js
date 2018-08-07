@@ -100,54 +100,25 @@ module.exports.get = (req, res, next) => {
         next(error); 
       }
     }); 
-};
+}; 
 
-module.exports.edit = (req, res, next) => {
-  const id = req.params.id
-  Word.findById(id)
-  .populate()
-}
-module.exports.edit = (req, res, next) => {
-  const id = req.params.id;
-  
-  Word.findById(id)
-    .then(word => {
-      if (word) {
-        res.render('words/update', {
-          word
-        });
-      } else {
-        next(createError(404, `Word with id ${id} not found`));
-      }
-    })
-    .catch(error => next(error));
-}
+module.exports.random = (req, res, next) => {  
 
-module.exports.doEdit = (req, res, next) => {
-  const id = req.params.id;
+Word.aggregate([{ $sample: { size: 1 } }])  
+  .then(words => {
+    console.log(words)
 
-  Word.findById(id)
-    .then(word => {
-      if (word) {
-        Object.assign(word, req.body);
-
-        word.save()
-          .then(() => {
-            res.redirect(`/words/${id}`);
-          })
-          .catch(error => {
-            if (error instanceof mongoose.Error.ValidationError) {
-              res.render('words/create', { 
-                word: word,
-                errors: error.errors
-              });
-            } else {
-              next(error);
-            }
-          })
-      } else {
-        next(createError(404, `Word with id ${id} not found`));
-      }
-    })
-    .catch(error => next(error));
+    if(words) {
+      res.redirect(`words/${words[0]._id}`);
+    } else {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    }
+  })
+  .catch(error => {
+    if(error instanceof mongoose.Error.CastError) {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    } else {
+      next(error);
+    }
+  }); 
 }
