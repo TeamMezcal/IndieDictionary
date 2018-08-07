@@ -20,8 +20,8 @@ const wordsRouter = require('./routes/word.routes');
 const savedRouter = require('./routes/saved.routes');
 const dictionaryRouter = require('./routes/dictionary.routes'); 
 const userWordsRouter = require('./routes/mywords.routes')
-const listRouter = require('./routes/list.routes')
-
+const listRouter = require('./routes/list.routes'); 
+const commentsRouter = require('./routes/comment.routes'); 
 const Picture = require("./models/picture.models"); 
 const multer = require('multer');
 //
@@ -67,7 +67,7 @@ app.use('/saved', savedRouter);
 app.use('/dictionary', dictionaryRouter); 
 app.use('/list', listRouter);
 app.use('/mywords', userWordsRouter);
-
+app.use('/comments', commentsRouter); 
 
 //catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -80,7 +80,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message; 
   res.locals.error = req.app.get('env') === 'development' ? err: {};  
 
-  //render tue error page
+  //render the error page
   res.status(err.status || 500 )
   res.render('error'); 
 }); 

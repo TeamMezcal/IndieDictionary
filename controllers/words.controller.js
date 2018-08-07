@@ -39,10 +39,11 @@ module.exports.doCreate = (req, res, next) => {
 };
 
 
+
 module.exports.list = (req, res, next) => {
   Word.find()
     .then(words => {
-      res.render('words/detail', {
+      res.render('list', {
         words
       });
     })
@@ -81,12 +82,12 @@ module.exports.get = (req, res, next) => {
   const id = req.params.id; 
   // TODO : foooking promise all 
   Word.findById(id)
-    .populate('word')
-    
+    .populate('comments')
     .then(word => {
+      console.info('Comentarios --> ', word)
       if(word) {
         res.render('words/detail', {
-          word 
+          word
         }); 
       } else {
         next(createError(404, 'Word with id ${id} not foocking found'))
@@ -99,4 +100,25 @@ module.exports.get = (req, res, next) => {
         next(error); 
       }
     }); 
+}; 
+
+module.exports.random = (req, res, next) => {  
+
+Word.aggregate([{ $sample: { size: 1 } }])  
+  .then(words => {
+    console.log(words)
+
+    if(words) {
+      res.redirect(`words/${words[0]._id}`);
+    } else {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    }
+  })
+  .catch(error => {
+    if(error instanceof mongoose.Error.CastError) {
+      next(createError(404, 'Word with id ${id} is not fooking found'))
+    } else {
+      next(error);
+    }
+  }); 
 }

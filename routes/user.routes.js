@@ -5,7 +5,8 @@ const usersController = require('../controllers/users.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
 router.get('/', authMiddleware.isAuthenticated, usersController.list); 
-router.get('/create', usersController.create); 
+router.get('/create', usersController.create);
+//router.post('/send-email', mailsController.send);
 router.post('/create', usersController.doCreate); 
 router.post('/:id/delete', 
   authMiddleware.isAuthenticated,
