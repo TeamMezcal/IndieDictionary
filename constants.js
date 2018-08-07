@@ -29,3 +29,8 @@ module.exports = {
     
   }
 
+  module.exports = {
+    EMAIL_ACTIVATED: 'Activated',
+    EMAIL_PENDING: 'Pending',
+  }
+

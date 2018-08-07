@@ -51,7 +51,8 @@ const wordSchema = new mongoose.Schema ({
 
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 
-}, {timestamps: true})
+}, {timestamps: true});
 
 const Word = mongoose.model('Word', wordSchema);
+
 module.exports = Word;

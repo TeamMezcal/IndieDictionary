@@ -1,4 +1,3 @@
-
 const constants = require('../constants');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -12,22 +11,38 @@ const userSchema = new mongoose.Schema({
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a fucking valid email address'],
     unique: true
   },
+
   password: {
     type: String,
     required: 'Password is required',
   },
+
   social: {
     googleId: String,
     facebookId: String
   },
+
   role: {
     type: String,
     enum: [constants.ROLE_ADMIN, constants.ROLE_GUEST],
     default: constants.ROLE_GUEST
-  }
-}, { timestamps: true });
+  },
 
-userSchema.pre('save', function(next) {
+  activated: {
+    type: String,
+    enum: [constants.EMAIL_ACTIVATED, constants.EMAIL_PENDING],
+    default: constants.EMAIL_PENDING
+  },
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+  }]
+
+}, {
+  timestamps: true
+});
+
+userSchema.pre('save', function (next) {
   if (this.email === FIRST_ADMIN_EMAIL) {
     this.role = constants.ROLE_ADMIN;
   }
@@ -47,7 +62,7 @@ userSchema.pre('save', function(next) {
   }
 });
 
-userSchema.methods.checkPassword = function(password) {
+userSchema.methods.checkPassword = function (password) {
   return bcrypt.compare(password, this.password);
 }
 

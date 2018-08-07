@@ -13,5 +13,10 @@ module.exports = mongoose.model('Comment', new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Word',
     required: true
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   }
 }, { timestamps: true }));
