@@ -1,4 +1,5 @@
 const passport = require('passport');
+const User = require('../models/user.models')
 
 module.exports.create = (req, res, next) => {
   res.render('sessions/create');
@@ -17,6 +18,7 @@ module.exports.doCreate = (req, res, next) => {
   if (!email || !password) {
     renderWithErrors({
       email: email ? undefined : 'Email is required',
+      user: activated ? undefined : 'Email verification is required',
       password: password ? undefined : 'Password is required'
     });
   } else {

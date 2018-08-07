@@ -1,0 +1,9 @@
+
+<h1 class="mb-4">Words</h1>
+
+<a class="btn btn-success mb-3" href="/words/create">New</a>
+
+{{# each words as |word| }}
+  {{> word }}
+  <br>
+{{/each }}

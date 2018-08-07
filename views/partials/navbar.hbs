@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/list">IndieDictionary</a>
+	<a class="navbar-brand" href="/list">
+	<img src="/public/img/logo2.png" width="30" height="30" class="d-inline-block align-top" alt="">IndieDictionary</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-content" aria-controls="main-nav-content"
 	 aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -8,40 +9,46 @@
 	<div class="collapse navbar-collapse" id="main-nav-content">
 		<ul class="navbar-nav mr-auto">
 			{{#if session}}
-			
-				<li class="nav-item active">
-					<a class="nav-link" href="/mywords">My Words</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/words/create">Create</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/#">Audit</a>
-				</li>
-			
-				
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+				 aria-expanded="false">
+					WordHUB
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="/mywords">My Words</a>
+					<a class="dropdown-item" href="/words/create">Create Word</a>
+					<a class="dropdown-item" href="#">Audit</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Change my default location</a>
+					<a class="dropdown-item" href="#">Change my default location</a>
+				</div>
+			</li>
+
+
 			{{else}}
-				<li class="nav-item active">
-					<a class="nav-link" href="/sessions/create">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/users/create">Register</a>
-				</li>
+
+			<li class="nav-item active">
+				<a class="nav-link" href="/sessions/create">Login</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/users/create">Register</a>
+			</li>
 			{{/if}}
 		</ul>
 	</div>
-	 <form class="form-inline my-2 my-lg-0" method="POST" action="/words">
-      <input class="form-control mr-sm-2" name="word" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+	<form class="form-inline my-2 my-lg-0" method="POST" action="/words">
+		<input class="form-control mr-sm-2" name="word" type="search" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	</form>
 	<ul class="navbar-nav mr-auto">
 		{{#if session}}
-			<li class="nav-item">
-				<a class="nav-link disabled" href="javascript:;">{{ session.email }}</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/sessions/delete">Logout</a>
-			</li>
+		<li class="nav-item">
+			<a class="nav-link disabled" href="javascript:;">{{ session.email }}</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/sessions/delete">Logout</a>
+		</li>
 		{{/if}}
 	</ul>
 
