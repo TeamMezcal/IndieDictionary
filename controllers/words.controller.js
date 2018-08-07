@@ -104,13 +104,11 @@ module.exports.get = (req, res, next) => {
 module.exports.random = (req, res, next) => {  
 
 Word.aggregate([{ $sample: { size: 1 } }])  
-
   .then(words => {
+    console.log(words)
 
     if(words) {
-      res.render('words/detail', {
-        words
-      });
+      res.redirect(`words/${words[0]._id}`);
     } else {
       next(createError(404, 'Word with id ${id} is not fooking found'))
     }

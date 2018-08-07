@@ -7,6 +7,8 @@ const Comment = require('../models/comment.model');
 module.exports.doCreate = (req, res, next) => {
   const id = req.body.word;
 
+  console.log(id);
+
   Word.findById(id)
     .then(word => {
       if (word) {
