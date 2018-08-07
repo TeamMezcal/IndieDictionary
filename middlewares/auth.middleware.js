@@ -11,7 +11,7 @@ module.exports.isAuthenticated = (req, res, next) => {
 
 module.exports.checkRole = (role) => {
   return (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === role) {
+    if (req.isAuthenticated() && req.user.role === role/*TO-DO: && USER IS CREATOR*/) {
       next(); 
     } else {
       next(createError(403, 'Not enough fucking privilages, go somewhere else'))

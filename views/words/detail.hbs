@@ -1,17 +1,15 @@
-aqui estoy
-
 
     <br>
     <div class="row">
         <div class="col-md-8">
-            <form action="/dictionary/dictionary" method="GET">
+            {{!-- <form action="/dictionary/dictionary" method="GET">
                 <div class="input-group mb-8">
                     <input type="text" class="form-control" placeholder="Type a word" aria-label="Word's value" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Search</button>
                     </div>
                 </div>
-            </form>
+            </form> --}}
             <br>
             <h1>{{word.value}}</h1>
             <h5> <i>{{word.type}}</i></h5>
@@ -30,8 +28,10 @@ aqui estoy
             <br>
             <h3>Examples</h3>
             <li>{{word.example}}</li>
+            {{>index}}
         </div>
         <div class="col-md-4">
-            {{>list}}
+            {{>form}}
+            {{>index}}
         </div>
 </div>
