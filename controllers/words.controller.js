@@ -192,6 +192,28 @@ module.exports.doLike = (req, res, next) => {
     });
 };
 
+
+module.exports.update = (req, res, next) => {
+  console.log('MIRAME MAMA')
+  const id = req.params.id;
+
+  
+  Word.findById(id)
+    .then(word => {
+      if (word) {
+        res.render('words/update', {
+          word
+        });
+      } else {
+        next(createError(404, `Celebrity with id ${id} not found`));
+      }
+    })
+    .catch(error => next(error));
+}
+
+
+
+
 module.exports.delete = (req, res, next) => {
 
   console.log('AQUI ESTOY')

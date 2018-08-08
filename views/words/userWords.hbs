@@ -9,11 +9,9 @@
             <b style="text-align: right">{{ this.value }}</b>
             <i style="text-align: right" class='fas fa-plus'></i></a>
             <div class="edit-delete">
-              <form class='edit' action="/words/{{ this.id }}/edit" method="post">
-                <button type="submit" class="btn btn-warning edit">
+              <a class='btn btn-warning edit' href="/words/{{ this.id }}/update">
                 Edit
-                </button>
-              </form>
+              </a>
               <form class='delete' action="/words/{{ this.id }}/delete" method="post">
                 <button type="submit" class="btn btn-danger " data-confirm="Are you sure?">
                 Delete
