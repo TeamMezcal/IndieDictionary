@@ -1,19 +1,21 @@
-
+  <br>
     <h2 class="mb-4">My Words</h2>
-    <p>These are the words created by you!</p>
+    <h4>These are the words you created!</h4>
     <ul class="list-group mt-2">
       {{#each words as |word| }}
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
             <a href="/words/{{word._id}}">
             <i>{{ this.type}}</i>
             <b style="text-align: right">{{ this.value }}</b>
             <i style="text-align: right" class='fas fa-plus'></i></a>
-          </div>
+            <div class="edit-delete">
+              <a class="btn btn-warning edit" href="/">Edit</a>
+              <a class="btn btn-danger delete" href="/">Delete</a>
+            </div>
         </li>
       {{/each}}
     </ul>        
     <br>
-    <p>These are the words you like!</p>
+    <h4>These are the words you like!</h4>
 
 

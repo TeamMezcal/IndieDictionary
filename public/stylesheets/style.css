@@ -2,3 +2,16 @@
     display: inline;
     background: red
 }
+
+.edit-delete {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.edit {
+    margin: .5%; 
+}
+
+.delete {
+    margin: .5%; 
+}
