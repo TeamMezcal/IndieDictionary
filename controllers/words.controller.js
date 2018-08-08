@@ -72,16 +72,19 @@ module.exports.listByQuery = (req, res, next) => {
     word
   } = req.body;
   Word.findOne({
-      "value": word
+      "value": word, 
     })
     .then(word => {
-      console.log('Word --> ', word)
-      res.render("words/detail", {
-        word
-      });
+      if(word) {
+        res.render("words/detail", {
+          word
+
+        });
+      } else {
+        res.render("words/not-found-create")
+      }
     })
     .catch(error => next(error));
-
 }
 
 
