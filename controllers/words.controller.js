@@ -191,3 +191,15 @@ module.exports.doLike = (req, res, next) => {
       }
     });
 };
+
+module.exports.delete = (req, res, next) => {
+
+  console.log('AQUI ESTOY')
+  const id = req.params.id;
+  
+  Word.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect('/mywords');
+    })
+    .catch(error => next(error));
+}
