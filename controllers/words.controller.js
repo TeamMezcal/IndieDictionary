@@ -153,12 +153,14 @@ module.exports.doLike = (req, res, next) => {
             User.findById(liker)
               .then(user => {
                 if (user) {
-
+                  console.log(user)
                   user.likes.push(like);
+                  user.save();
+                  
                 }
               })
               
-              return word.save(), user.save();
+              return word.save()
           })
           .then(() => {
             res.redirect(`/words/${id}`)
