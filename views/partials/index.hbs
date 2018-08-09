@@ -1,7 +1,16 @@
 
 {{#each comments as |comment| }}
-  <dl>
-    <dt><small>{{ datetime comment.createdAt }} - </small> {{ comment.title }}</dt>
-    <dd>{{ comment.text }}</dd>
-  </dl>
-{{/each}}
+
+ <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{comment.title}}</h5>
+    <dt><small>{{ datetime comment.createdAt }} - </small></dt>
+        <p class="card-text">{{comment.text}}</p>
+        <a href="#" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+
