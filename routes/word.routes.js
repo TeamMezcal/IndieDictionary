@@ -20,6 +20,6 @@ router.post('/:id/delete', authMiddleware.isAuthenticated, wordsController.delet
 //router.get('/5b65b7295d541324bd6b36d9', wordsController.random); 
 
 router.get('/:id/update', authMiddleware.isAuthenticated, wordsController.update)
-//router.post('/:id/edit', authMiddleware.isAuthenticated, wordsController.doUpdate)
+router.post('/:id/update', authMiddleware.isAuthenticated, wordsController.doUpdate)
 
 module.exports = router; 

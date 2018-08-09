@@ -67,9 +67,18 @@ module.exports.listByUser = (req, res, next) => {
     .catch(error => next(error));
 };
 
-module.exports.likesByUser = (req, res, nexts) => {
-  
-}
+module.exports.likesByUser = (req, res, next) => {
+  const userId = req.user._id;
+  Likes.find({
+    "user": userId
+  })
+  .then(likes => {
+    res.render('words/userWords', {
+      words
+    }); 
+  })
+  .catch(error => next(error));
+}; 
 
 module.exports.listByQuery = (req, res, next) => {
   const {
@@ -198,13 +207,11 @@ module.exports.doLike = (req, res, next) => {
 
 
 module.exports.update = (req, res, next) => {
-  console.log('MIRAME MAMA')
   const id = req.params.id;
-
-  
   Word.findById(id)
-    .then(word => {
-      if (word) {
+  .populate('words')
+  .then(word => {
+    if (word) {
         res.render('words/update', {
           word
         });
@@ -213,7 +220,38 @@ module.exports.update = (req, res, next) => {
       }
     })
     .catch(error => next(error));
-}
+}; 
+
+module.exports.doUpdate = (req, res, next) => {
+  const id = req.params.id;
+  console.log(req.body)
+  Word.findById(id)
+    .then(word => {
+      
+      if (word) {
+
+        Object.assign(word, req.body);
+
+        word.save()
+          .then(() => {
+            res.redirect(`/words/${id}`);
+          })
+          .catch(error => {
+            if (error instanceof mongoose.Error.ValidationError) {
+              res.render('words/create', { 
+                word: word,
+                //errors: error.errors
+              });
+            } else {
+              next(error);
+            }
+          })
+      } else {
+        next(createError(404, `Word with id ${id} not found`));
+      }
+    })
+    .catch(error => next(error));
+};
 
 
 
