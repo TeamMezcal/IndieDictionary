@@ -13,9 +13,13 @@ router.get("/create", authMiddleware.isAuthenticated, wordsController.create);
 router.post("/create", authMiddleware.isAuthenticated, wordsController.doCreate); 
 
 router.get('/:id', wordsController.get); 
+router.get("/:id/likes", authMiddleware.isAuthenticated, wordsController.doLike);
+
+router.post('/:id/delete', authMiddleware.isAuthenticated, wordsController.delete);
+//router.get("/not-found-create", wordsController)
 //router.get('/5b65b7295d541324bd6b36d9', wordsController.random); 
 
-// router.get('/:id/edit', authMiddleware.isAuthenticated, wordsController.edit)
-// router.post('/:id/edit', authMiddleware.isAuthenticated, wordsController.doEdit)
+router.get('/:id/update', authMiddleware.isAuthenticated, wordsController.update)
+router.post('/:id/update', authMiddleware.isAuthenticated, wordsController.doUpdate)
 
 module.exports = router; 

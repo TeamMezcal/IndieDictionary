@@ -2,3 +2,38 @@
     display: inline;
     background: red
 }
+
+.edit-delete {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.edit {
+    margin: 1%; 
+}
+
+.delete {
+    margin: 1%; 
+}
+
+.saved-buttons {
+    display: flex; 
+    justify-content: flex-start;     
+}
+
+.saved {
+    margin: 1vh; 
+}
+
+.index-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    height: 100vh;
+    width: 100vw; 
+
+}
+
+.logo {
+    margin: 0 auto; 
+}
