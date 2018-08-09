@@ -67,6 +67,10 @@ module.exports.listByUser = (req, res, next) => {
     .catch(error => next(error));
 };
 
+module.exports.likesByUser = (req, res, nexts) => {
+  
+}
+
 module.exports.listByQuery = (req, res, next) => {
   const {
     word
